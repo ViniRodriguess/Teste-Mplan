@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router();
 const mysql = require('../mysql').pool;
 
-//RETORNA TODOS OS PRODUTOS
 router.get('/', (req, res, next) => {
 
     mysql.getConnection((error, conn) => {
@@ -33,7 +32,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-//INSERE UM PRODUTO
 router.post('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
@@ -62,7 +60,6 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// RETORNA OS DADOS DE UM PRODUTO
 router.get('/:id_produto', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error}) }
@@ -96,7 +93,6 @@ router.get('/:id_produto', (req, res, next) => {
     });
 });
 
-//ALTERA UM PRODUTO
 router.patch('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
@@ -132,7 +128,6 @@ router.patch('/', (req, res, next) => {
     });
 });
 
-//EXCLUI UM PRODUTO
 router.delete('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }

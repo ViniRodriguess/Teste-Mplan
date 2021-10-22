@@ -3,7 +3,6 @@ const router = express.Router();
 const mysql = require('../mysql').pool;
 
 
-//RETORNA TODOS OS PEDIDOS
 router.get('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error}) }
@@ -42,7 +41,6 @@ router.get('/', (req, res, next) => {
     });
 });
 
-//INSERE UM PEDIDO
 router.post('/', (req, res, next) => {
 
     mysql.getConnection((error, conn) => {
@@ -82,7 +80,6 @@ router.post('/', (req, res, next) => {
     })
 });
 
-// RETORNA OS DADOS DE UM PEDIDO
 router.get('/:id_pedido', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error}) }
@@ -115,7 +112,6 @@ router.get('/:id_pedido', (req, res, next) => {
     });
 });
 
-//EXCLUI UM PEDIDOS
 router.delete('/', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
